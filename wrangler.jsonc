@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/wrangler.json",
+  "name": "curative-os",
+  "compatibility_date": "2025-09-27",
+  "pages_build_output_dir": "out"
+}

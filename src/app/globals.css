@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Curative OS CRM palette */
+  --background: 214 26% 7%;        /* #0d1117 near-black blue */
+  --foreground: 210 20% 92%;       /* #e4e9ed off-white */
+  --border: 210 20% 16%;           /* #1e2b33 subtle dark border */
+  --primary: 210 20% 92%;
+  --primary-foreground: 214 26% 7%;
+  --secondary: 210 18% 14%;
+  --secondary-foreground: 210 20% 92%;
+  --muted: 210 18% 18%;
+  --muted-foreground: 210 10% 55%; /* #7b8d98 medium gray */
+  --accent: 174 90% 38%;           /* #0dcfb4 vibrant teal-cyan */
+  --accent-foreground: 214 26% 7%;
+  --card: 212 22% 10%;             /* #141c22 card surface */
+  --card-foreground: 210 20% 92%;
+  --radius: 0.5rem;
+}
+
+* {
+  @apply border-border;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings: 'rlig' 1 'calt' 1;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
