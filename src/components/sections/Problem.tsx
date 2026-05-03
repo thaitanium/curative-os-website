@@ -4,34 +4,39 @@ import { motion } from 'framer-motion';
 
 const comparisonData = [
   {
-    feature: 'Deal Scoring',
-    generic: 'Generic fields, manual scoring',
-    curative: 'AI Underwriting (1-10 score + reasoning)',
+    feature: 'Pipeline Stages',
+    generic: '"Opportunity stages" built for sales',
+    curative: 'Boards keyed to your workflow: Leads → Researching → Pre-Qualified → Research Call → Qualified',
   },
   {
-    feature: 'Cash Tracking',
-    generic: 'One-off notes in notes field',
-    curative: 'Deployed → Returned events with cycle tracking',
-  },
-  {
-    feature: 'Board Setup',
-    generic: 'Generic stage names, broad fields',
-    curative: 'Curative-specific stages, card templates',
-  },
-  {
-    feature: 'Team Playbook',
-    generic: 'Playbook lives in Slack, email, spreadsheets',
-    curative: 'SOPs built into the platform',
-  },
-  {
-    feature: 'Deal Handoff',
-    generic: 'Deals slip between research & sales',
-    curative: 'Move deal across boards with audit trail',
+    feature: 'Heir Tracking',
+    generic: 'No heir or family tracking',
+    curative: 'Track heirs, ownership history, and probate status per deal',
   },
   {
     feature: 'Reporting',
-    generic: 'Scattered metrics, unclear KPIs',
-    curative: 'Real-time conversion funnel + ROI dashboard',
+    generic: 'Generic dashboards built for SaaS sales',
+    curative: 'Cash deployed, cash returned, AI scores, KPI tiles — in one view',
+  },
+  {
+    feature: 'KPI Dashboard',
+    generic: 'Build your own reports from scratch',
+    curative: 'KPI dashboard built for curative metrics out of the box',
+  },
+  {
+    feature: 'List Import',
+    generic: 'Import takes hours of column matching',
+    curative: '3-step CSV wizard — upload a county tax list and start in 2 minutes',
+  },
+  {
+    feature: 'Deal Scoring',
+    generic: 'Manual deal scoring or generic templates',
+    curative: 'Proprietary AI underwriting trained on curative deal criteria',
+  },
+  {
+    feature: 'Cash Tracking',
+    generic: 'No cash tracking — lives in spreadsheets',
+    curative: 'Cash Events panel tracks every dollar deployed and returned per deal',
   },
 ];
 
@@ -48,11 +53,12 @@ export default function Problem() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Generic CRMs Bend to the Deal
+            Generic CRMs weren't built for this.
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Off-the-shelf CRMs force you to bend your workflow to fit their design.
-            Curative OS is built around how you actually work.
+            When you're buying properties with unpaid taxes, missing heirs, and
+            title clouds — a generic sales CRM isn't just inconvenient. It's
+            actively working against you.
           </p>
         </motion.div>
 
@@ -109,8 +115,8 @@ export default function Problem() {
           viewport={{ once: true }}
           className="text-center text-lg text-muted-foreground mt-12 max-w-2xl mx-auto"
         >
-          Your deal flow is unique. Your CRM should be too. Curative OS meets you where
-          you are.
+          The curative workflow ships with the software. No retrofitting. No
+          bending the tool to fit the work.
         </motion.p>
       </div>
     </section>

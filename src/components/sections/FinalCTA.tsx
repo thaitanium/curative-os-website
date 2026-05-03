@@ -20,11 +20,12 @@ export default function FinalCTA() {
         className="relative z-10 max-w-4xl mx-auto text-center"
       >
         <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-          Stop bending your CRM to your deals.
+          Stop losing curative deals to bad tooling.
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-          Get a CRM built for how you actually work. Start your free 14-day trial today.
-          No credit card. No setup fees. Cancel anytime.
+          Curative OS closes the gap between spreadsheet chaos and a real
+          operating system — built for messy-title deals, not generic sales
+          pipelines.
         </p>
 
         {/* CTA Buttons */}
@@ -35,15 +36,15 @@ export default function FinalCTA() {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:opacity-90 transition-opacity text-lg"
           >
-            Start Your Free Trial
+            Start Free 14-Day Trial
           </motion.a>
           <motion.a
-            href="mailto:hello@curativeos.com"
+            href="#product"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent/10 transition-colors text-lg"
           >
-            Schedule a Demo
+            See the Product
           </motion.a>
         </div>
 

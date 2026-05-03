@@ -4,20 +4,16 @@ import { motion } from 'framer-motion';
 
 const stats = [
   {
-    number: '22',
-    label: 'Team Members',
+    number: '21',
+    label: 'Operators',
+  },
+  {
+    number: '$5M',
+    label: 'On Track',
   },
   {
     number: '1–2/wk',
     label: 'Curative Acquisitions',
-  },
-  {
-    number: '160+',
-    label: 'Deals Closed',
-  },
-  {
-    number: '$1B',
-    label: 'Target Exit',
   },
 ];
 
@@ -44,30 +40,30 @@ const statVariants = {
 export default function SocialProof() {
   return (
     <section className="w-full bg-background py-16 md:py-24 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Section heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-3">
-            Powered By
+            Trusted by
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Flow Property Group
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Curative OS is the operating system behind one of the most active curative
-            investing teams in the country.
+          <p className="text-base text-muted-foreground max-w-xl mx-auto">
+            The team that pioneered curative investing uses Curative OS as
+            their operating system.
           </p>
         </motion.div>
 
         {/* Stats grid */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-3 gap-4 md:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -79,69 +75,14 @@ export default function SocialProof() {
               variants={statVariants}
               className="flex flex-col items-center text-center p-6 rounded-xl border border-border bg-card hover:border-accent transition-colors"
             >
-              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-accent mb-2">
                 {stat.number}
               </div>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <p className="text-xs md:text-sm text-muted-foreground">
+                {stat.label}
+              </p>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Testimonial */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="bg-card rounded-xl border border-border p-8 md:p-12"
-        >
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <div className="flex-shrink-0">
-              <div className="w-16 h-16 rounded-full bg-accent/20 border border-accent flex items-center justify-center">
-                <span className="text-2xl font-bold text-accent">RL</span>
-              </div>
-            </div>
-            <div className="flex-grow">
-              <blockquote className="text-lg md:text-xl text-foreground italic mb-4">
-                "Flow Property Group runs curative acquisitions at scale. Curative OS keeps
-                our 22-person team aligned, every deal moving, and nothing falling through
-                the cracks. It was built for exactly how we operate."
-              </blockquote>
-              <div>
-                <p className="font-semibold text-foreground">Robert Lee</p>
-                <p className="text-sm text-muted-foreground">
-                  Founder, Flow Property Group
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Community */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <p className="text-muted-foreground mb-6">
-            Used by investors and teams across the US
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-accent" />
-              <span className="text-sm text-muted-foreground">Flow Property Group</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-accent" />
-              <span className="text-sm text-muted-foreground">Curative Investor Cohort 1</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-accent" />
-              <span className="text-sm text-muted-foreground">Independent Operators</span>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

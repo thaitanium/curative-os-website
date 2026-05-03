@@ -6,43 +6,48 @@ import { motion } from 'framer-motion';
 const pillars = [
   {
     number: 1,
-    title: 'Smart Boards',
+    title: 'Underwrite',
+    tagline: 'Score deals in seconds, not in your head',
     description:
-      'Kanban boards built for curative deal flow. Drag & drop from Leads → Researching → Pre-Qualified → Sold. One click to move deals across teams.',
-    miniSop: 'SOP: Set up your first board in 90 seconds',
-    slug: 'set-up-first-board',
-  },
-  {
-    number: 2,
-    title: 'AI Underwriting',
-    description:
-      'Score deals 1-10 with reasoning. The AI learns from your data, gets sharper every run, and you can override any time.',
+      'Proprietary AI underwriting trained on curative deal criteria. Get a 1-10 score with full reasoning. Bring your own API key — Curative OS provides the reference files so the AI understands curative risk the way operators do.',
     miniSop: 'SOP: Score a deal with AI Underwriting',
     slug: 'score-deal-ai-underwriting',
   },
   {
-    number: 3,
-    title: 'Cash Conversion Tracking',
+    number: 2,
+    title: 'Track Cash',
+    tagline: "Know your numbers before your accountant does",
     description:
-      'Log every dollar in and out. See cash cycles, ROI per deal, and team performance in real time.',
+      'Log every dollar deployed and returned per deal with the Cash Events panel. See cash conversion cycles across your portfolio. KPI dashboard surfaces pipeline value, win rate, average deal size, and monthly revenue.',
     miniSop: 'SOP: Track cash on a deal',
     slug: 'track-cash-on-deal',
   },
   {
-    number: 4,
-    title: 'Team Playbook',
+    number: 3,
+    title: 'Pipeline',
+    tagline: 'Boards that match how curative deals move',
     description:
-      'SOPs live inside the app, not Slack. New hires see the exact process on day one. No onboarding tax.',
-    miniSop: 'SOP: Configure your dashboard for standup',
-    slug: 'configure-dashboard-standup',
+      'Custom stages for your playbook (Leads → Researching → Pre-Qualified → Sold). Drag-and-drop kanban, terminal flags, archived boards. Compose card titles from up to 3 fields — address + owner name at a glance.',
+    miniSop: 'SOP: Set up your first board in 90 seconds',
+    slug: 'set-up-first-board',
+  },
+  {
+    number: 4,
+    title: 'Intake',
+    tagline: 'Get a county list working in 2 minutes',
+    description:
+      'Upload a tax-delinquency CSV, map columns with a searchable picker, hit import. Field presets so the second import is one click. Dedupe-aware — no duplicate cards, no cleanup after import.',
+    miniSop: 'SOP: Import a tax-delinquency list',
+    slug: 'import-tax-delinquency-list',
   },
   {
     number: 5,
-    title: 'Built-In Compliance',
+    title: 'Outreach',
+    tagline: 'Work a deal without leaving the board',
     description:
-      'Litigation holds, audit trails on every edit, deal movement tracking, and field-level permissions.',
-    miniSop: 'SOP: Manage a litigation hold',
-    slug: 'manage-litigation-hold',
+      'Send iMessages straight from the deal page — auto-attached to the right contact. Reminders bucket into Overdue / Today / Tomorrow / Upcoming. Notes + activity feed captures everything you did and why.',
+    miniSop: 'SOP: Move a deal across boards',
+    slug: 'move-deal-across-boards',
   },
 ];
 
@@ -68,7 +73,7 @@ const pilllarVariants = {
 
 export default function FeaturePillars() {
   return (
-    <section className="w-full bg-background py-16 md:py-24 px-4">
+    <section id="product" className="w-full bg-background py-16 md:py-24 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section heading */}
         <motion.div
@@ -79,11 +84,11 @@ export default function FeaturePillars() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Built for Curative Investing
+            Five pillars. Built for curative.
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Five core pillars that make deal tracking, team alignment, and scaling
-            inevitable.
+            Score deals, track cash, run the pipeline, import lists, and reach
+            owners — all in one operating system built for messy-title deals.
           </p>
         </motion.div>
 
@@ -107,9 +112,14 @@ export default function FeaturePillars() {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
+              <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-accent transition-colors uppercase tracking-wide">
                 {pillar.title}
               </h3>
+
+              {/* Tagline */}
+              <p className="text-sm font-semibold text-foreground/90 mb-3 leading-snug">
+                {pillar.tagline}
+              </p>
 
               {/* Description */}
               <p className="text-sm text-muted-foreground mb-4 flex-grow">

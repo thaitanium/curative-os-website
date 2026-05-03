@@ -19,21 +19,22 @@ export default function Hero() {
             <div className="inline-flex items-center space-x-2 w-fit">
               <div className="h-px w-3 bg-accent" />
               <p className="text-sm font-semibold text-accent uppercase tracking-wide">
-                For Curative Investors
+                Built for Curative Investing
               </p>
             </div>
 
             {/* Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-balance">
-              The CRM that knows what a{' '}
-              <span className="text-accent">clouded title</span> is.
+              Messy titles.{' '}
+              <span className="text-accent">Clean pipeline.</span> One CRM.
             </h1>
 
             {/* Subheading */}
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Stop bending your CRM to your deals. We built the operating system for
-              curative investing — deal scoring, cash tracking, AI underwriting, and a
-              team playbook that scales.
+              Score deals with AI. Track every dollar deployed. Work your leads
+              without leaving the board. Curative OS is the pipeline, the
+              scorecard, and the dashboard — built for the way curative
+              investing actually works.
             </p>
 
             {/* CTAs */}
@@ -47,18 +48,19 @@ export default function Hero() {
                 Start Free Trial
               </motion.a>
               <motion.a
-                href="mailto:hello@curativeos.com"
+                href="#product"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 border border-muted bg-transparent text-foreground font-semibold rounded-lg hover:bg-card transition-colors"
               >
-                Watch Demo
+                See the Product
               </motion.a>
             </div>
 
             {/* Trust signal */}
             <p className="text-sm text-muted-foreground pt-4">
-              Used by 300+ curative investors across the US.
+              Trusted by Flow Property Group — 21 operators closing 1–2
+              curative acquisitions every week, on track for $5M.
             </p>
           </motion.div>
 

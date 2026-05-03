@@ -93,10 +93,10 @@ export default function Footer() {
           className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Curative Investor LLC. All rights reserved.
+            © {new Date().getFullYear()} Curative OS. All rights reserved.
           </p>
           <div className="flex items-center space-x-6 text-xs text-muted-foreground">
-            <span>Part of the Curative Investor ecosystem</span>
+            <span>Built for curative real estate investing</span>
           </div>
         </motion.div>
       </div>

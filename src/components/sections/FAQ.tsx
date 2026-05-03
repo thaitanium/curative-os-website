@@ -7,42 +7,42 @@ const faqs = [
   {
     question: 'Is there a setup fee?',
     answer:
-      "No setup fees. You can start your 14-day free trial immediately. No credit card required. When your trial ends, you'll have the choice to upgrade to Solo, Team, or Agency pricing.",
+      "No setup fees. You can start your 14-day free trial immediately. No credit card required. When your trial ends, you'll have the choice to upgrade to Starter, Team, or Enterprise pricing.",
   },
   {
     question: 'Can I import deals from my existing CRM?',
     answer:
-      'Yes. We support CSV imports with field mapping. If you have a custom CRM, we can help you export to CSV and import into Curative OS with your columns mapped.',
+      'Yes. We support CSV imports with a 3-step wizard and a searchable column-mapping picker. If you have a custom CRM, export to CSV and we can map your columns to Curative OS fields in under 2 minutes.',
   },
   {
     question: 'What happens to my data when I cancel?',
     answer:
-      "Your data belongs to you. We'll export your deals, audit logs, and everything else to CSV or JSON. You can leave anytime, penalty-free.",
+      "Your data belongs to you. We'll export your deals, audit logs, and everything else to CSV. You can leave anytime, penalty-free.",
   },
   {
     question: 'Does Curative OS work for other real estate models?',
     answer:
-      "Curative OS is purpose-built for curative investing. If you're doing traditional fix & flip, wholesale, or rental workflows, it will work, but we've optimized specifically for title cloud strategies.",
+      "Curative OS is purpose-built for curative investing — properties with messy titles, unpaid taxes, and missing heirs. If you're doing traditional fix & flip, wholesale, or rental workflows, it will work, but we've optimized specifically for curative deal flow.",
+  },
+  {
+    question: 'How does the AI underwriting work?',
+    answer:
+      "Curative OS uses a bring-your-own-API-key model — you connect your own LLM provider, and we provide proprietary reference files trained on curative deal criteria. The AI scores each deal 1-10 with full reasoning. You can override the AI score anytime — your call wins.",
+  },
+  {
+    question: 'What outreach can I do from the deal page?',
+    answer:
+      "Today, you can send iMessages straight from a deal card on macOS — auto-attached to the right contact. Telephone calls, SMS, and email are on the roadmap as a full outreach suite.",
   },
   {
     question: 'Can my team use it offline?',
     answer:
-      'The web app requires an internet connection. A mobile app with offline sync is on the roadmap. For now, the mobile web experience is fully functional on iOS and Android devices.',
+      'The web app requires an internet connection. A mobile app with offline sync is on the roadmap. For now, the mobile web experience works on iOS and Android.',
   },
   {
-    question: 'How secure is Curative OS?',
+    question: "What's coming next on the roadmap?",
     answer:
-      'We use industry-standard encryption (AES-256 at rest, TLS in transit), regular security audits, and role-based access controls. Agency tier includes SOC 2 compliance certification.',
-  },
-  {
-    question: 'Can I integrate Curative OS with other tools?',
-    answer:
-      'Solo and Team plans support Zapier and native integrations with Slack and email. Agency tier includes API access for custom integrations and webhooks.',
-  },
-  {
-    question: "What's your support process?",
-    answer:
-      'Solo tier includes email support (24-hour response). Team tier gets priority support with video walkthrough onboarding. Agency tier includes a dedicated account manager and SLA guarantees.',
+      'Litigation hold, family tree tracker, deceased owner identification, automation workflow sequences, advanced reporting (P&L, balance sheet, heir payouts), a public Curative Research API, and a full telephone/SMS/email outreach suite. We ship every week.',
   },
 ];
 

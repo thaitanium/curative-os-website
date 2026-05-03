@@ -4,53 +4,53 @@ import { motion } from 'framer-motion';
 
 const tiers = [
   {
-    name: 'Solo',
-    price: '$99',
+    name: 'Starter',
+    price: '$49',
     period: '/month',
-    description: 'For independent curative investors just getting started.',
+    description: 'For solo operators or small teams just getting started.',
     features: [
-      'Unlimited deals & boards',
-      'Smart deal scoring',
-      'Cash tracking & conversion funnel',
-      'Mobile-first dashboard',
-      '1 user seat',
-      'Email support',
+      'Up to 5 user seats',
+      'Boards + custom stages',
+      'Custom fields (11 types)',
+      'CSV import wizard',
+      'Deal reminders',
+      'AI underwriting (BYOAPI)',
+      'Basic permissions',
     ],
-    cta: 'Start Free',
+    cta: 'Start Free Trial',
     highlighted: false,
   },
   {
     name: 'Team',
-    price: '$299',
+    price: '$99',
     period: '/month',
-    description: 'For small teams scaling 2-10 deals per week.',
+    description: 'For growing teams running multiple acquisition managers.',
     features: [
-      'Everything in Solo',
-      'Up to 5 user seats',
-      'Role-based permissions',
-      'Team performance dashboard',
-      'Field presets & templates',
-      'AI Underwriting (unlimited)',
-      'Priority support',
+      'Everything in Starter',
+      'Up to 10 user seats',
+      'Cash Events panel',
+      'KPI dashboard',
+      'iMessage outreach from deals',
+      'Field presets',
+      'Team management',
+      'Board-level permissions',
     ],
-    cta: 'Start Free',
+    cta: 'Start Free Trial',
     highlighted: true,
   },
   {
-    name: 'Agency',
-    price: 'Custom',
-    period: 'pricing',
-    description: 'For enterprises and large operations.',
+    name: 'Enterprise',
+    price: 'Contact us',
+    period: '',
+    description: 'For larger teams and multi-LLC operators.',
     features: [
       'Everything in Team',
       'Unlimited user seats',
-      'Dedicated account manager',
-      'API access',
-      'Custom integrations',
-      'SOC 2 compliance',
-      'SLA guarantee',
+      'Priority support',
+      'Early access to roadmap features',
+      'White-glove onboarding',
     ],
-    cta: 'Talk to Sales',
+    cta: 'Talk to Us',
     highlighted: false,
   },
 ];
@@ -146,8 +146,8 @@ export default function Pricing() {
               {/* CTA button */}
               <motion.a
                 href={
-                  tier.name === 'Solo'
-                    ? 'https://app.curativeos.com/signup?plan=solo'
+                  tier.name === 'Starter'
+                    ? 'https://app.curativeos.com/signup?plan=starter'
                     : tier.name === 'Team'
                       ? 'https://app.curativeos.com/signup?plan=team'
                       : 'mailto:hello@curativeos.com'
