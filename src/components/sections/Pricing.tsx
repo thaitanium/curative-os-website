@@ -18,6 +18,7 @@ const tiers = [
       'Basic permissions',
     ],
     cta: 'Start Free Trial',
+    href: 'https://app.curativeos.com/signup?plan=starter',
     highlighted: false,
   },
   {
@@ -36,6 +37,7 @@ const tiers = [
       'Board-level permissions',
     ],
     cta: 'Start Free Trial',
+    href: 'https://app.curativeos.com/signup?plan=team',
     highlighted: true,
   },
   {
@@ -51,6 +53,7 @@ const tiers = [
       'White-glove onboarding',
     ],
     cta: 'Talk to Us',
+    href: 'mailto:hello@curativeos.com',
     highlighted: false,
   },
 ];
@@ -145,13 +148,7 @@ export default function Pricing() {
 
               {/* CTA button */}
               <motion.a
-                href={
-                  tier.name === 'Starter'
-                    ? 'https://app.curativeos.com/signup?plan=starter'
-                    : tier.name === 'Team'
-                      ? 'https://app.curativeos.com/signup?plan=team'
-                      : 'mailto:hello@curativeos.com'
-                }
+                href={tier.href}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`w-full py-3 px-6 rounded-lg font-semibold mb-8 transition-all block text-center ${

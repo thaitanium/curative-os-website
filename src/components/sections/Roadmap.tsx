@@ -57,7 +57,7 @@ const cardVariants = {
 
 export default function Roadmap() {
   return (
-    <section className="w-full bg-background py-16 md:py-24 px-4">
+    <section id="waitlist" className="w-full bg-background py-16 md:py-24 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section heading */}
         <motion.div
