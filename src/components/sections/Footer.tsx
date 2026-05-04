@@ -11,6 +11,8 @@ const footerLinks = {
   ],
   company: [
     { label: 'Contact', href: 'mailto:hello@curativeos.com' },
+    { label: 'Terms of Service', href: '/terms' },
+    { label: 'Privacy Policy', href: '/privacy' },
   ],
 };
 
