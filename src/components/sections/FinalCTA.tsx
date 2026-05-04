@@ -31,7 +31,7 @@ export default function FinalCTA() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <motion.a
-            href="https://app.curativeos.com/signup"
+            href={`${process.env.NEXT_PUBLIC_CRM_URL ?? 'https://app.curativeos.com'}/signup`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:opacity-90 transition-opacity text-lg"

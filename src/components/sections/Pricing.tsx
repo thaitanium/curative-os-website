@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-const tiers = [
+const tierDefs = [
   {
     name: 'Starter',
     price: '$49',
@@ -18,7 +18,7 @@ const tiers = [
       'Basic permissions',
     ],
     cta: 'Start Free Trial',
-    href: 'https://app.curativeos.com/signup?plan=starter',
+    planSlug: 'starter',
     highlighted: false,
   },
   {
@@ -37,7 +37,7 @@ const tiers = [
       'Board-level permissions',
     ],
     cta: 'Start Free Trial',
-    href: 'https://app.curativeos.com/signup?plan=team',
+    planSlug: 'team',
     highlighted: true,
   },
   {
@@ -53,7 +53,7 @@ const tiers = [
       'White-glove onboarding',
     ],
     cta: 'Talk to Us',
-    href: 'mailto:hello@curativeos.com',
+    planSlug: null,
     highlighted: false,
   },
 ];
@@ -79,6 +79,14 @@ const cardVariants = {
 };
 
 export default function Pricing() {
+  const crmUrl = process.env.NEXT_PUBLIC_CRM_URL ?? 'https://app.curativeos.com';
+  const tiers = tierDefs.map((t) => ({
+    ...t,
+    href: t.planSlug
+      ? `${crmUrl}/signup?plan=${t.planSlug}`
+      : 'mailto:hello@curativeos.com',
+  }));
+
   return (
     <section className="w-full bg-card py-16 md:py-24 px-4">
       <div className="max-w-6xl mx-auto">
