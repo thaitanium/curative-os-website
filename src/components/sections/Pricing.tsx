@@ -17,7 +17,7 @@ const tierDefs = [
       'AI underwriting (BYOAPI)',
       'Basic permissions',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Start 7-Day Trial',
     planSlug: 'starter',
     highlighted: false,
   },
@@ -36,7 +36,7 @@ const tierDefs = [
       'Team management',
       'Board-level permissions',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Start 7-Day Trial',
     planSlug: 'team',
     highlighted: true,
   },
@@ -102,8 +102,8 @@ export default function Pricing() {
             Simple, Transparent Pricing
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            No setup fees. No surprises. Cancel anytime. All plans include a 14-day free
-            trial.
+            No setup fees. No surprises. Start with a 7-day trial. Cancel anytime
+            before the trial ends.
           </p>
         </motion.div>
 
@@ -193,7 +193,7 @@ export default function Pricing() {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground">
-            All plans include 14 days free. No credit card required.
+            Card required to start. Cancel anytime before your 7-day trial ends.
           </p>
         </motion.div>
       </div>

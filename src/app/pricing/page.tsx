@@ -5,7 +5,7 @@ import Footer from '@/components/sections/Footer';
 export const metadata: Metadata = {
   title: 'Pricing | Curative OS',
   description:
-    'Simple, transparent pricing for Curative OS. Starter, Team, and Enterprise plans. Free 14-day trial.',
+    'Simple, transparent pricing for Curative OS. Starter, Team, and Enterprise plans. Start with a 7-day trial.',
 };
 
 export default function PricingPage() {

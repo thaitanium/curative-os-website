@@ -57,12 +57,12 @@ export default function Nav() {
             Log In
           </a>
           <motion.a
-            href="https://app.curativeos.com/signup"
+            href="https://app.curativeos.com/signup?plan=starter"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-4 py-2 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
-            Start Free Trial
+            Start 7-Day Trial
           </motion.a>
         </div>
       </div>

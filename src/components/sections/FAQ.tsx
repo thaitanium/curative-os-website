@@ -7,7 +7,7 @@ const faqs = [
   {
     question: 'Is there a setup fee?',
     answer:
-      "No setup fees. You can start your 14-day free trial immediately. No credit card required. When your trial ends, you'll have the choice to upgrade to Starter, Team, or Enterprise pricing.",
+      "No setup fees. You can start your 7-day trial immediately with a card on file. Cancel anytime before the trial ends to avoid being charged.",
   },
   {
     question: 'Can I import deals from my existing CRM?',

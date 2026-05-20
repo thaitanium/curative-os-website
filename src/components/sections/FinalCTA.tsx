@@ -31,12 +31,12 @@ export default function FinalCTA() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <motion.a
-            href={`${process.env.NEXT_PUBLIC_CRM_URL ?? 'https://app.curativeos.com'}/signup`}
+            href={`${process.env.NEXT_PUBLIC_CRM_URL ?? 'https://app.curativeos.com'}/signup?plan=starter`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:opacity-90 transition-opacity text-lg"
           >
-            Start Free 14-Day Trial
+            Start 7-Day Trial
           </motion.a>
           <motion.a
             href="#product"
@@ -58,11 +58,11 @@ export default function FinalCTA() {
         >
           <div className="flex items-center space-x-2">
             <span className="text-accent font-bold">✓</span>
-            <span>No credit card required</span>
+            <span>Card required</span>
           </div>
           <div className="flex items-center space-x-2">
             <span className="text-accent font-bold">✓</span>
-            <span>14-day free trial</span>
+            <span>7-day trial</span>
           </div>
           <div className="flex items-center space-x-2">
             <span className="text-accent font-bold">✓</span>

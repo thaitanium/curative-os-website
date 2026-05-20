@@ -40,12 +40,12 @@ export default function Hero() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <motion.a
-                href="https://app.curativeos.com/signup"
+                href="https://app.curativeos.com/signup?plan=starter"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-accent text-accent-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity"
               >
-                Start Free Trial
+                Start 7-Day Trial
               </motion.a>
               <motion.a
                 href="#product"
