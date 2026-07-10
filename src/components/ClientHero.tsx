@@ -1,8 +1,4 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-
-const Hero = dynamic(() => import('@/components/sections/Hero'), { ssr: false });
+import Hero from '@/components/sections/Hero';
 
 export default function ClientHero() {
   return <Hero />;

@@ -1,123 +1,58 @@
-'use client';
-
-import { motion } from 'framer-motion';
+import { Check, Minus } from 'lucide-react';
 
 const comparisonData = [
   {
-    feature: 'Pipeline Stages',
-    generic: '"Opportunity stages" built for sales',
-    curative: 'Boards keyed to your workflow: Leads → Researching → Pre-Qualified → Research Call → Qualified',
+    feature: 'Pipeline',
+    generic: 'Generic opportunity stages',
+    curative: 'Stages that match title research, outreach, and acquisition',
   },
   {
-    feature: 'Heir Tracking',
-    generic: 'No heir or family tracking',
-    curative: 'Track heirs, ownership history, and probate status per deal',
+    feature: 'Property intelligence',
+    generic: 'Contacts and notes in separate records',
+    curative: 'Heirs, ownership, maps, documents, and risk on one deal',
   },
   {
     feature: 'Reporting',
-    generic: 'Generic dashboards built for SaaS sales',
-    curative: 'Cash deployed, cash returned, AI scores, KPI tiles — in one view',
+    generic: 'Sales metrics assembled from scratch',
+    curative: 'Cash deployed, cycle time, deal score, and pipeline value',
   },
   {
-    feature: 'KPI Dashboard',
-    generic: 'Build your own reports from scratch',
-    curative: 'KPI dashboard built for curative metrics out of the box',
-  },
-  {
-    feature: 'List Import',
-    generic: 'Import takes hours of column matching',
-    curative: '3-step CSV wizard — upload a county tax list and start in 2 minutes',
-  },
-  {
-    feature: 'Deal Scoring',
-    generic: 'Manual deal scoring or generic templates',
-    curative: 'Proprietary AI underwriting trained on curative deal criteria',
-  },
-  {
-    feature: 'Cash Tracking',
-    generic: 'No cash tracking — lives in spreadsheets',
-    curative: 'Cash Events panel tracks every dollar deployed and returned per deal',
+    feature: 'List intake',
+    generic: 'Manual field matching and cleanup',
+    curative: 'Reusable mappings with duplicate-aware imports',
   },
 ];
 
 export default function Problem() {
   return (
-    <section className="w-full bg-card py-16 md:py-24 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Generic CRMs weren't built for this.
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            When you're buying properties with unpaid taxes, missing heirs, and
-            title clouds — a generic sales CRM isn't just inconvenient. It's
-            actively working against you.
+    <section className="border-b border-border bg-card/35 px-5 py-20 md:px-8 lg:px-12 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div>
+            <p className="marketing-eyebrow">A purpose-built system</p>
+            <h2 className="mt-5 max-w-xl text-balance text-4xl font-semibold leading-tight md:text-5xl">
+              Generic CRMs were not built for this work.
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-muted-foreground lg:justify-self-end">
+            Curative OS keeps the property, people, title facts, outreach, and money connected so your team does not have to rebuild context in every conversation.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Table */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="overflow-x-auto"
-        >
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="text-left py-4 px-4 font-semibold text-foreground">
-                  Feature
-                </th>
-                <th className="text-left py-4 px-4 font-semibold text-muted-foreground">
-                  Generic CRM
-                </th>
-                <th className="text-left py-4 px-4 font-semibold text-accent">
-                  Curative OS
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonData.map((row, idx) => (
-                <motion.tr
-                  key={row.feature}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  className="border-b border-border hover:bg-background transition-colors"
-                >
-                  <td className="py-4 px-4 font-semibold text-foreground">
-                    {row.feature}
-                  </td>
-                  <td className="py-4 px-4 text-muted-foreground">{row.generic}</td>
-                  <td className="py-4 px-4 text-foreground font-medium text-accent">
-                    ✓ {row.curative}
-                  </td>
-                </motion.tr>
-              ))}
-            </tbody>
-          </table>
-        </motion.div>
-
-        {/* Closing statement */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center text-lg text-muted-foreground mt-12 max-w-2xl mx-auto"
-        >
-          The curative workflow ships with the software. No retrofitting. No
-          bending the tool to fit the work.
-        </motion.p>
+        <div className="mt-12 overflow-hidden rounded-lg border border-border">
+          <div className="grid grid-cols-[0.65fr_1fr_1.35fr] border-b border-border bg-background/70 px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+            <span>Workflow</span>
+            <span>Generic CRM</span>
+            <span className="text-accent">Curative OS</span>
+          </div>
+          {comparisonData.map((row) => (
+            <div key={row.feature} className="grid grid-cols-[0.65fr_1fr_1.35fr] items-start border-b border-border px-4 py-4 text-sm last:border-b-0">
+              <strong className="font-medium text-foreground">{row.feature}</strong>
+              <span className="flex gap-2 pr-4 text-muted-foreground"><Minus className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />{row.generic}</span>
+              <span className="flex gap-2 text-foreground"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />{row.curative}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
