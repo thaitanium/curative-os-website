@@ -1,21 +1,53 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { ArrowDown, ArrowRight, Play } from 'lucide-react';
-import { BoardProductScreen } from '@/components/ui/BoardProductScreen';
+import { Screenshot } from '@/components/ui/Screenshot';
+
+const entrance = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] as const },
+  }),
+};
 
 export default function Hero() {
   return (
     <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden border-b border-border bg-background pt-16 text-foreground">
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 pb-20 pt-12 md:px-8 md:pt-24 lg:px-12 lg:pt-[11vh]">
         <div className="max-w-[590px]">
-          <p className="marketing-eyebrow">The operating system for curative investors</p>
-          <h1 className="mt-6 max-w-[590px] text-balance text-5xl font-semibold leading-[0.98] tracking-normal md:text-7xl lg:text-[72px]">
+          <motion.p variants={entrance} initial="hidden" animate="visible" custom={0} className="marketing-eyebrow">
+            The operating system for curative investors
+          </motion.p>
+          <motion.h1
+            variants={entrance}
+            initial="hidden"
+            animate="visible"
+            custom={0.08}
+            className="mt-6 max-w-[590px] text-balance text-5xl font-semibold leading-[0.98] tracking-normal md:text-7xl lg:text-[72px]"
+          >
             Resolve title problems.{' '}
             <span className="text-accent">Move deals forward.</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground md:text-lg">
-            One focused workspace for research, outreach, underwriting,
-            documents, and every dollar deployed on a curative deal.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          </motion.h1>
+          <motion.p
+            variants={entrance}
+            initial="hidden"
+            animate="visible"
+            custom={0.16}
+            className="mt-6 max-w-xl text-base leading-7 text-muted-foreground md:text-lg"
+          >
+            One focused workspace for heir research, outreach, legal tracking,
+            underwriting, and every dollar deployed on a curative deal.
+          </motion.p>
+          <motion.div
+            variants={entrance}
+            initial="hidden"
+            animate="visible"
+            custom={0.24}
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+          >
             <a
               href="https://app.curativeos.com/signup?plan=starter"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-accent bg-accent px-5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
@@ -30,8 +62,14 @@ export default function Hero() {
               <Play className="h-4 w-4 text-accent" aria-hidden="true" />
               See the product
             </a>
-          </div>
-          <div className="mt-8 hidden items-center gap-3 sm:flex">
+          </motion.div>
+          <motion.div
+            variants={entrance}
+            initial="hidden"
+            animate="visible"
+            custom={0.32}
+            className="mt-8 hidden items-center gap-3 sm:flex"
+          >
             <div className="flex -space-x-1.5" aria-hidden="true">
               {['PT', 'RJ', 'AM', '+18'].map((label, index) => (
                 <span
@@ -47,14 +85,29 @@ export default function Hero() {
               <span className="font-semibold text-foreground">Built with active operators.</span>
               <br />Used by teams solving title every week.
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="absolute bottom-12 left-[45%] right-[-4%] hidden lg:block">
-          <BoardProductScreen className="shadow-[0_32px_100px_rgba(0,0,0,0.62)]" />
-        </div>
-        <div className="absolute left-5 right-[-18%] top-[590px] md:left-8 md:top-[740px] lg:hidden">
-          <BoardProductScreen className="shadow-[0_28px_80px_rgba(0,0,0,0.62)]" />
+        <motion.div
+          initial={{ opacity: 0, y: 48 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="absolute bottom-12 left-[45%] right-[-4%] hidden lg:block"
+        >
+          <Screenshot
+            src="/screenshots/board.png"
+            alt="Curative OS kanban board with deal cards moving through curative pipeline stages"
+            priority
+            className="shadow-[0_32px_100px_rgba(0,0,0,0.62)]"
+          />
+        </motion.div>
+        <div className="mt-14 lg:hidden">
+          <Screenshot
+            src="/screenshots/board.png"
+            alt="Curative OS kanban board with deal cards moving through curative pipeline stages"
+            priority
+            className="shadow-[0_28px_80px_rgba(0,0,0,0.62)]"
+          />
         </div>
 
         <a href="#workflow" className="absolute bottom-5 left-5 hidden items-center gap-2 text-[11px] font-medium text-muted-foreground md:left-8 lg:flex lg:left-12">

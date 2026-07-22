@@ -37,7 +37,7 @@ export default function SOPsPage() {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-6xl font-bold text-foreground mb-4"
           >
-            Standard Operating Procedures
+            Resources
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -45,8 +45,8 @@ export default function SOPsPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg text-muted-foreground"
           >
-            Step-by-step guides to master Curative OS. From board setup to advanced
-            compliance management.
+            Step-by-step guides to master Curative OS — from your first board to
+            Family Trees, legal matters, and AI underwriting.
           </motion.p>
         </div>
       </section>
