@@ -18,6 +18,13 @@
   --card: 150 10% 7%;              /* quiet elevated surface */
   --card-foreground: 210 20% 92%;
   --radius: 0.5rem;
+
+  /* Motion tokens — mirrored in src/lib/motion.ts, change both together */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --duration-press: 160ms;
+  --duration-panel: 250ms;
+  --duration-reveal: 600ms;
 }
 
 * {
@@ -37,6 +44,86 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /**
+   * The full motion contract for a pressable element: hover colors plus a
+   * subtle scale on :active, so a tap or click is acknowledged before the
+   * navigation resolves.
+   *
+   * This owns the whole `transition` shorthand, so elements using .press
+   * should NOT also carry Tailwind's `transition-colors` — the two would
+   * fight over transition-property and whichever lost would stop animating.
+   *
+   * Kept under prefers-reduced-motion: this is direct-manipulation feedback,
+   * not a position change, and removing it would leave presses unanswered.
+   */
+  .press {
+    transition:
+      transform var(--duration-press) var(--ease-out),
+      color 150ms var(--ease-out),
+      background-color 150ms var(--ease-out),
+      border-color 150ms var(--ease-out),
+      opacity 150ms var(--ease-out);
+  }
+
+  .press:active {
+    transform: scale(0.97);
+  }
+
+  /**
+   * Scroll/mount reveal. Predetermined motion like this belongs in CSS rather
+   * than a JS tween: the compositor runs it off the main thread, so it holds
+   * up while images decode and scripts execute, and it stays interruptible.
+   *
+   * JS only flips data-visible; the offsets come in as inline custom
+   * properties set on the element itself (never on a parent, which would
+   * force a style recalc across every child).
+   */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 0px), 0);
+    transition:
+      opacity var(--duration-reveal) var(--ease-out),
+      transform var(--duration-reveal) var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .reveal[data-visible='true'] {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0);
+    will-change: auto;
+  }
+
+  /* The accordion panel: grid-rows 0fr -> 1fr animates open without
+     touching height, so it stays on the compositor and stays interruptible. */
+  .disclosure {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    /* visibility keeps a collapsed panel out of the accessibility tree and out
+       of tab order; it flips only after the collapse finishes so the close
+       animation stays visible. */
+    visibility: hidden;
+    transition:
+      grid-template-rows var(--duration-panel) var(--ease-out),
+      opacity var(--duration-panel) var(--ease-out),
+      visibility 0s linear var(--duration-panel);
+  }
+
+  .disclosure[data-open='true'] {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition:
+      grid-template-rows var(--duration-panel) var(--ease-out),
+      opacity var(--duration-panel) var(--ease-out),
+      visibility 0s;
+  }
+
+  .disclosure > * {
+    overflow: hidden;
   }
 
   .marketing-eyebrow {
@@ -62,5 +149,34 @@ body {
       linear-gradient(#202a25 1px, transparent 1px),
       linear-gradient(90deg, #202a25 1px, transparent 1px);
     background-size: 28px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Anchor links in the nav and hero jump instead of gliding. */
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Keep the fade — it still explains that content has arrived — but remove
+     every position change. */
+  .reveal,
+  .reveal[data-visible='true'] {
+    transform: none;
+    transition: opacity var(--duration-reveal) var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Keep the fade so the disclosure still reads as opening, drop the travel. */
+  .disclosure {
+    transition:
+      opacity var(--duration-panel) var(--ease-out),
+      visibility 0s linear var(--duration-panel);
+  }
+
+  .disclosure[data-open='true'] {
+    transition:
+      opacity var(--duration-panel) var(--ease-out),
+      visibility 0s;
   }
 }

@@ -82,7 +82,7 @@ export default function WaitlistForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="px-6 py-2 rounded-lg bg-accent text-accent-foreground font-medium hover:opacity-90 disabled:opacity-50 transition-opacity"
+        className="press px-6 py-2 rounded-lg bg-accent text-accent-foreground font-medium hover:opacity-90 disabled:opacity-50"
       >
         {status === 'loading' ? 'Joining...' : 'Join Waitlist'}
       </button>

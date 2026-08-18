@@ -1,74 +1,67 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { ArrowDown, ArrowRight, Play } from 'lucide-react';
 import { Screenshot } from '@/components/ui/Screenshot';
 
-const entrance = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] as const },
-  }),
-};
+/**
+ * Inline custom properties for the .reveal rule in globals.css.
+ * The hero enters on mount rather than on scroll, so it uses the same CSS
+ * transition with a mounted flag instead of an intersection observer.
+ */
+const enter = (delay: number, y = 24): CSSProperties =>
+  ({ '--reveal-y': `${y}px`, '--reveal-delay': `${Math.round(delay * 1000)}ms` }) as CSSProperties;
 
 export default function Hero() {
+  const [entered, setEntered] = useState(false);
+  useEffect(() => setEntered(true), []);
   return (
     <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden border-b border-border bg-background pt-16 text-foreground">
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 pb-20 pt-12 md:px-8 md:pt-24 lg:px-12 lg:pt-[11vh]">
         <div className="max-w-[590px]">
-          <motion.p variants={entrance} initial="hidden" animate="visible" custom={0} className="marketing-eyebrow">
+          <p data-visible={entered} style={enter(0)} className="reveal marketing-eyebrow">
             The operating system for curative investors
-          </motion.p>
-          <motion.h1
-            variants={entrance}
-            initial="hidden"
-            animate="visible"
-            custom={0.08}
-            className="mt-6 max-w-[590px] text-balance text-5xl font-semibold leading-[0.98] tracking-normal md:text-7xl lg:text-[72px]"
+          </p>
+          <h1
+            data-visible={entered}
+            style={enter(0.08)}
+            className="reveal mt-6 max-w-[590px] text-balance text-5xl font-semibold leading-[0.98] tracking-normal md:text-7xl lg:text-[72px]"
           >
             Resolve title problems.{' '}
             <span className="text-accent">Move deals forward.</span>
-          </motion.h1>
-          <motion.p
-            variants={entrance}
-            initial="hidden"
-            animate="visible"
-            custom={0.16}
-            className="mt-6 max-w-xl text-base leading-7 text-muted-foreground md:text-lg"
+          </h1>
+          <p
+            data-visible={entered}
+            style={enter(0.16)}
+            className="reveal mt-6 max-w-xl text-base leading-7 text-muted-foreground md:text-lg"
           >
             One focused workspace for heir research, outreach, legal tracking,
             underwriting, and every dollar deployed on a curative deal.
-          </motion.p>
-          <motion.div
-            variants={entrance}
-            initial="hidden"
-            animate="visible"
-            custom={0.24}
-            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+          </p>
+          <div
+            data-visible={entered}
+            style={enter(0.24)}
+            className="reveal mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <a
               href="https://app.curativeos.com/signup?plan=starter"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-accent bg-accent px-5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+              className="press inline-flex h-11 items-center justify-center gap-2 rounded-md border border-accent bg-accent px-5 text-sm font-semibold text-accent-foreground hover:bg-accent/90"
             >
               Start your 7-day trial
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
               href="#product"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold text-foreground transition-colors hover:bg-card"
+              className="press inline-flex h-11 items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold text-foreground hover:bg-card"
             >
               <Play className="h-4 w-4 text-accent" aria-hidden="true" />
               See the product
             </a>
-          </motion.div>
-          <motion.div
-            variants={entrance}
-            initial="hidden"
-            animate="visible"
-            custom={0.32}
-            className="mt-8 hidden items-center gap-3 sm:flex"
+          </div>
+          <div
+            data-visible={entered}
+            style={enter(0.32)}
+            className="reveal mt-8 hidden items-center gap-3 sm:flex"
           >
             <div className="flex -space-x-1.5" aria-hidden="true">
               {['PT', 'RJ', 'AM', '+18'].map((label, index) => (
@@ -85,14 +78,13 @@ export default function Hero() {
               <span className="font-semibold text-foreground">Built with active operators.</span>
               <br />Used by teams solving title every week.
             </p>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 48 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="absolute bottom-12 left-[45%] right-[-4%] hidden lg:block"
+        <div
+          data-visible={entered}
+          style={enter(0.15, 48)}
+          className="reveal absolute bottom-12 left-[45%] right-[-4%] hidden lg:block"
         >
           <Screenshot
             src="/screenshots/board.png"
@@ -100,7 +92,7 @@ export default function Hero() {
             priority
             className="shadow-[0_32px_100px_rgba(0,0,0,0.62)]"
           />
-        </motion.div>
+        </div>
         <div className="mt-14 lg:hidden">
           <Screenshot
             src="/screenshots/board.png"

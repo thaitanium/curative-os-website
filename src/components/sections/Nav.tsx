@@ -38,7 +38,7 @@ export default function Nav() {
           </a>
           <a
             href="https://app.curativeos.com/signup?plan=starter"
-            className="inline-flex h-9 items-center gap-1.5 whitespace-nowrap rounded-md border border-accent bg-accent px-3.5 text-xs font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+            className="press inline-flex h-9 items-center gap-1.5 whitespace-nowrap rounded-md border border-accent bg-accent px-3.5 text-xs font-semibold text-accent-foreground hover:bg-accent/90"
           >
             Start free trial
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />

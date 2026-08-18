@@ -84,7 +84,7 @@ export default function Pricing() {
                   <h3 className="text-lg font-semibold">{tier.name}</h3>
                   <p className="mt-3 min-h-12 text-sm leading-6 text-muted-foreground">{tier.description}</p>
                   <p className="mt-7 flex items-baseline gap-2"><strong className="text-4xl font-semibold tracking-tight">{tier.price}</strong><span className="text-sm text-muted-foreground">{tier.period}</span></p>
-                  <a href={href} className={`mt-7 inline-flex h-10 items-center justify-center gap-2 rounded-md border text-sm font-semibold transition-colors ${tier.highlighted ? 'border-accent bg-accent text-accent-foreground hover:bg-accent/90' : 'border-border bg-card hover:border-accent/50'}`}>
+                  <a href={href} className={`press mt-7 inline-flex h-10 items-center justify-center gap-2 rounded-md border text-sm font-semibold ${tier.highlighted ? 'border-accent bg-accent text-accent-foreground hover:bg-accent/90' : 'border-border bg-card hover:border-accent/50'}`}>
                     {tier.planSlug ? 'Start 7-day trial' : 'Contact sales'}
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </a>

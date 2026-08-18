@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Reveal } from '@/components/motion/Reveal';
+import { staggerDelay } from '@/lib/motion';
 
 const faqs = [
   {
@@ -73,13 +74,7 @@ export default function FAQ() {
     <section className="w-full bg-card py-16 md:py-24 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Section heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <Reveal className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h2>
@@ -89,62 +84,62 @@ export default function FAQ() {
               Contact our team.
             </a>
           </p>
-        </motion.div>
+        </Reveal>
 
         {/* FAQ items */}
         <div className="space-y-4">
-          {faqs.map((faq, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              viewport={{ once: true }}
-              className="border border-border rounded-lg overflow-hidden bg-background"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full flex items-center justify-between p-6 hover:bg-card transition-colors"
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <Reveal
+                key={idx}
+                delay={staggerDelay(idx)}
+                className="border border-border rounded-lg overflow-hidden bg-background"
               >
-                <h3 className="text-left font-semibold text-foreground text-lg">
-                  {faq.question}
-                </h3>
-                <motion.div
-                  animate={{ rotate: openIndex === idx ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex-shrink-0 ml-4"
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${idx}`}
+                  className="press w-full flex items-center justify-between p-6 text-left hover:bg-card"
                 >
-                  <svg
-                    className="w-5 h-5 text-accent"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <h3 className="text-left font-semibold text-foreground text-lg">
+                    {faq.question}
+                  </h3>
+                  {/* CSS transform rather than a Framer tween: interruptible when
+                      questions are clicked in quick succession, and composited. */}
+                  <span
+                    className="flex-shrink-0 ml-4 transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none"
+                    style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                    />
-                  </svg>
-                </motion.div>
-              </button>
+                    <svg
+                      className="w-5 h-5 text-accent"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                      />
+                    </svg>
+                  </span>
+                </button>
 
-              <AnimatePresence>
-                {openIndex === idx && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="border-t border-border"
-                  >
-                    <p className="p-6 text-muted-foreground">{faq.answer}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                {/* .disclosure animates grid-template-rows 0fr -> 1fr, so the
+                    panel opens to its natural height without animating `height`. */}
+                <div id={`faq-panel-${idx}`} className="disclosure" data-open={isOpen}>
+                  <div>
+                    <p className="border-t border-border p-6 text-muted-foreground">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

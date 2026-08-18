@@ -194,7 +194,17 @@ export default function ProductStory() {
               : 'border-b border-border'
           }
         >
-          <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 md:px-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-center lg:gap-20 lg:px-12 lg:py-28">
+          <div
+            className={`mx-auto grid max-w-[1440px] gap-12 px-5 py-20 md:px-8 lg:items-center lg:gap-20 lg:px-12 lg:py-28 ${
+              // `order` flips which side each item renders on but NOT which grid
+              // track it occupies, so the track sizes have to flip with it —
+              // otherwise the screenshot lands in the narrow column and the
+              // max-w-md copy leaves the wide column half empty.
+              index % 2 === 1
+                ? 'lg:grid-cols-[1.32fr_0.68fr]'
+                : 'lg:grid-cols-[0.68fr_1.32fr]'
+            }`}
+          >
             <Reveal
               direction={index % 2 === 1 ? 'left' : 'right'}
               className={index % 2 === 1 ? 'lg:order-2' : undefined}

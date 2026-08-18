@@ -15,7 +15,7 @@ export default function FinalCTA() {
             ))}
           </div>
         </div>
-        <a href="https://app.curativeos.com/signup?plan=starter" className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-md border border-accent bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90">
+        <a href="https://app.curativeos.com/signup?plan=starter" className="press inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-md border border-accent bg-accent px-6 text-sm font-semibold text-accent-foreground hover:bg-accent/90">
           Start your 7-day trial
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
